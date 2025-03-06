@@ -8,17 +8,17 @@
  */
 binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 {
-    /* Check if the node or its parent is NULL */
-    if (node == NULL || node->parent == NULL || node->parent->parent == NULL)
-        return (NULL);
+	/* Check if the node or its parent is NULL */
+	if (node == NULL || node->parent == NULL || node->parent->parent == NULL)
+		return (NULL);
 
-    /* If the parent is the left child of its parent, return the right sibling (uncle) */
-    if (node->parent == node->parent->parent->left)
-        return (node->parent->parent->right);
-    
-    /* If the parent is the right child of its parent, return the left sibling (uncle) */
-    if (node->parent == node->parent->parent->right)
-        return (node->parent->parent->left);
+	/* If the parent is the left child of its parent, return the right sibling (uncle) */
+	if (node->parent == node->parent->parent->left)
+		return (node->parent->parent->right);
 
-    return (NULL); /* If no uncle exists */
+	/* If the parent is the right child of its parent, return the left sibling (uncle) */
+	if (node->parent == node->parent->parent->right)
+		return (node->parent->parent->left);
+
+	return (NULL); /* If no uncle exists */
 }
